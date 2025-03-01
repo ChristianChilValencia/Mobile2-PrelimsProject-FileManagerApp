@@ -1,20 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title size="large">File Manager: Create</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">File Name</ion-label>
+    <ion-input [(ngModel)]="fileName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">File Content</ion-label>
+    <ion-textarea [(ngModel)]="fileContent" rows="100" autoGrow="true"></ion-textarea>
+  </ion-item>
 </ion-content>
+
+<ion-footer>
+  <ion-grid slot="top" style="background: #1E1E1E;">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="newFile()" fill="clear">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          New File
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="createFile()" fill="clear" color="warning">
+          <ion-icon slot="start" name="save-outline"></ion-icon>
+          Save File
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" routerLink="/home">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Create</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="notes" routerLink="/notes">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>Notes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

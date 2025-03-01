@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large">File Manager: Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <ion-list>
+    <ion-card *ngFor="let file of filelist" (click)="presentActionSheet(file.name)">
+      <ion-card-header>
+        <ion-card-title>{{ file.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <label>{{ file.content }}</label>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" routerLink="/home">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Create</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="notes" routerLink="/notes">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>Notes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
